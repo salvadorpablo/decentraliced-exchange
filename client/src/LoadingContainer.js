@@ -12,7 +12,7 @@ function LoadingContainer() {
             const web3 = await getWeb3();
             const contracts = await getContracts(web3);
             const accounts = await web3.eth.getAccounts();
-            console.log(web3, contracts, accounts);
+            // console.log(web3, contracts, accounts);
             setWeb3(web3);
             setContracts(contracts);
             setAccounts(accounts);
@@ -22,11 +22,11 @@ function LoadingContainer() {
 
     const isReady = () => {
         return (
-            typeof web3 !== 'undefined' && typeof contracts !== 'undefined' && accounts.length > 0 // NO RECOGE LAS ACCOUNTS
+            typeof web3 !== 'undefined' && typeof contracts !== 'undefined' && accounts.length > 0 
             );
         }
         if (!isReady()) {
-        console.log(web3, contracts, accounts);
+        // console.log(web3, contracts, accounts);
         return <div>Loading...</div>;
     };
 
