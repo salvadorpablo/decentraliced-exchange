@@ -1,5 +1,5 @@
 const path = require("path");
-const HDWalletProvider = require("truffle-hdwallet-provider");
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 require('dotenv').config();
 
 
@@ -16,11 +16,18 @@ module.exports = {
 
   networks: {
     rinkeby: {
-      provider: () => new HDWalletProvider(process.env.MNEMONIC, process.env.INFURA_KEY),
-      network_id: 4,
-      gas: 5500000,
-      confirmations: 2,
+      networkCheckTimeout: 100000,
+      provider: () =>
+        new HDWalletProvider(
+          process.env.MNEMONIC,
+          process.env.INFURA_KEY,
+          0,
+          4
+        ),
+      // gaslimit: 100000,
+      networkCheckTimeoutnetworkCheckTimeout: 10000,
       timeoutBlocks: 200,
+      network_id: 4,
     },
   },
 

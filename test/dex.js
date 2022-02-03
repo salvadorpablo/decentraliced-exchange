@@ -250,7 +250,7 @@ contract('Dex', (accounts) => {
         )
     });
 
-    it('11. Should create market order and match against existing limit order', async () => {
+    it.only('11. Should create market order and match against existing limit order', async () => {
         await dex.deposit(
             web3.utils.toWei('100'),
             DAI,
